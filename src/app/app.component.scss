@@ -1,0 +1,65 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 50vw;
+    margin: 20px;
+
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    .newButton{
+        width: 15vw;
+        margin: 20px;
+        font-size: large;
+        font-weight: 600;
+        
+    }
+
+    table{
+        border: 5px solid pink;
+        border-radius: 10px;
+        width: inherit;
+        background-color: rgb(227, 146, 192, 0.3);
+        
+    }
+    thead{
+        th{
+            padding: 20px 30px;
+        }
+    }
+
+    button {
+        width: inherit;
+        padding: 10px;
+        box-shadow: 0px 0px 10px 5px rgb(227, 146, 192);
+        background-color: rgb(227, 146, 192);
+        border: none;
+    }
+    
+    tbody {   
+        tr{
+            background-color: pink;
+            .editBtn {
+                background-image: url(../assets/img/edit.png);
+                background-size: cover;
+            }
+            td{
+                padding: 10px;
+            }
+            div {
+                display: flex;
+                flex-direction: column;        
+            }
+        } 
+
+        .name{
+            font-weight: 600;
+            
+            
+        }
+    }
+}

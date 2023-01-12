@@ -1,22 +1,39 @@
-<button (click)="initNewHero()">Hero to Edit</button>
+<div class="container">
+  
+  <table>
+    <thead>
+      <th>Name</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Place</th>
+    </thead>
+    
+    <tbody>
+      <tr *ngFor="let hero of heroes" >
+        
+        <a href={{searchForHero(hero)}}>
+            <td class="name">{{ hero.name }}</td>
+        </a>
+        <td>{{ hero.firstName }}</td>
+        <td>{{ hero.lastName }}</td>
+        <div [ngSwitch]="hero.place">
+          <td>{{ hero.place }}</td>
+          <div *ngSwitchCase="'Gotham'">
+            <a href={{mapLink[1]}}>map</a>
+          </div>
+          <div *ngSwitchCase="'Malibu'">
+            <a href={{mapLink[2]}}>map</a>
+          </div>
+          <div *ngSwitchCase="'New York City'">
+            <a href={{mapLink[0]}}>map</a>
+          </div>          
+        </div>
 
-<table>
-  <thead>
-    <th>Name</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Place</th>
-  </thead>
-
-  <tbody>
-    <tr *ngFor="let hero of heroes" >
-      <td>{{ hero.name }}</td>
-      <td>{{ hero.firstName }}</td>
-      <td>{{ hero.lastName }}</td>
-      <td>{{ hero.place }}</td>
-      <td><button (click)="editHero(hero)">Edit</button></td>
-    </tr>
-  </tbody>
-</table>
-
-<app-edit-hero [hero]="heroToEdit" (heroesUpdated)="updateHeroList($event)"></app-edit-hero>
+        <td><button class="editBtn" (click)="editHero(hero)"></button></td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="newButton" (click)="initNewHero()">Add new record</button>
+  
+  <app-edit-hero [hero]="heroToEdit" (heroesUpdated)="updateHeroList($event)"></app-edit-hero>
+</div>
